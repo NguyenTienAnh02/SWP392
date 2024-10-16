@@ -30,12 +30,16 @@ public class AuthenticationFilter {
 
     public AuthenticationResponse authenticate(AuthenticationRequest authenticationRequest) {
         try {
+            String userName, password;
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
-                            authenticationRequest.getUsername(),
-                            authenticationRequest.getPassword()
+                            userName = authenticationRequest.getUsername(),
+                            password= authenticationRequest.getPassword()
                     )
+
             );
+            System.out.println("username: " + userName);
+            System.out.println("password: " + password);
         } catch (AuthenticationException ex) {
             return AuthenticationResponse.builder().message("Failed to authenticate").build();
         }

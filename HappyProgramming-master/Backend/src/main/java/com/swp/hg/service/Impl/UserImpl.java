@@ -29,6 +29,8 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static java.lang.String.valueOf;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -175,11 +177,9 @@ public class UserImpl implements UserService, UserDetailsService {
         if (user == null) {
             log.error("User not found in the database");
             throw new UsernameNotFoundException("User not found in the database");
-        } else if (!user.isStatus()) {
-            log.error("User is deactivate");
-            throw new UsernameNotFoundException("User is deactivate");
-        } else {
-            log.info("User found in the database: {}", username);
+        }
+        else {
+            System.out.println("user: " + user.printOutUser());
         }
         if (!user.isEnabled()) {
             log.error("Account is enabled");

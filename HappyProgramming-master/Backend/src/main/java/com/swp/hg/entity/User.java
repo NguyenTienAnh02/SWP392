@@ -114,4 +114,19 @@ public class User implements UserDetails {
         return true;
     }
 
+    public String printOutUser() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", fullname='" + fullname + '\'' +
+                ", gender=" + gender +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", dob=" + dob +
+                ", address='" + address + '\'' +
+                ", status=" + status +
+                '}';
+    }
+
+
 }
